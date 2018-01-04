@@ -103,6 +103,11 @@ public class CasSecurityProperties {
              * CAS Server logout path that will be append to {@link Server#baseUrl}
              */
             private String logout = "/logout";
+
+            /**
+             * logout success url
+             */
+            private String logoutSuccessUrl = null;
         }
     }
 

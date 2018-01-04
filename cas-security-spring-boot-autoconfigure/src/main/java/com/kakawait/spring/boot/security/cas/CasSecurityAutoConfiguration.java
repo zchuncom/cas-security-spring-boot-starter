@@ -199,8 +199,9 @@ public class CasSecurityAutoConfiguration {
 
         @Override
         public void configure(HttpSecurity http) throws Exception {
-            String logoutSuccessUrl = buildUrl(casSecurityProperties.getServer().getBaseUrl(),
-                    casSecurityProperties.getServer().getPaths().getLogout());
+            String logoutSuccessUrl = casSecurityProperties.getServer().getPaths().getLogoutSuccessUrl() != null ?
+                    casSecurityProperties.getServer().getPaths().getLogoutSuccessUrl() :
+                    buildUrl(casSecurityProperties.getServer().getBaseUrl(), casSecurityProperties.getServer().getPaths().getLogout());
             http.logout().permitAll().logoutSuccessUrl(logoutSuccessUrl);
         }
 
